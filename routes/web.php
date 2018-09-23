@@ -17,9 +17,12 @@
 Route::get('/', function () {
     return view('layouts/dashboard');
 });
-Route::get('/dashboard', function () {
-    return "hello";
-});
+
+// 1 is Role id ... it must be fetched after login
+Route::get('/1', 'HomeController@index');
+
+Route::get('/1/request','HomeController@create');
+Route::post('/1','HomeController@store');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
